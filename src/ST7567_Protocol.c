@@ -43,28 +43,24 @@ enum select_operation_type
  specified line address is displayed at the top row (COM0) of the LCD panel.
  */
 
-typedef struct s_line_address
-{
-  unsigned int line_address :6;
-  unsigned int identifier :2;
-} line_address;
-
-typedef union u_set_start_line_command_byte
-{
-  line_address command_elements;
-  uint8_t command_byte;
-} set_start_line_command_byte;
-
 typedef struct s_set_start_line
 {
-  set_start_line_command_byte command_byte;
+  union
+  {
+    struct
+    {
+      unsigned int line_address :6;
+      unsigned int identifier :2;
+    };
+    uint8_t command_byte;
+  };
   unsigned int A0 :1;
-} set_start_line;
+} set_start_line_t;
 
 void set_start_line_element(enum select_operation_type type,
-    set_start_line **the_element)
+    set_start_line_t **the_element)
 {
-  static set_start_line start_line_element;
+  static set_start_line_t start_line_element;
   switch (type)
   {
   case get:
@@ -77,25 +73,25 @@ void set_start_line_element(enum select_operation_type type,
 
 void init_set_start_line_instruction(void)
 {
-  set_start_line *set_start_line = NULL;
+  set_start_line_t *set_start_line = NULL;
   set_start_line_element(get, &set_start_line);
   set_start_line->A0 = 0;
-  set_start_line->command_byte.command_elements.identifier = 0b01;
+  set_start_line->identifier = 0b01;
 }
 
 void set_line_address_for_set_start_line_instruction(uint8_t line_address)
 {
-  set_start_line *set_start_line = NULL;
+  set_start_line_t *set_start_line = NULL;
   set_start_line_element(get, &set_start_line);
-  set_start_line->command_byte.command_elements.line_address = line_address;
+  set_start_line->line_address = line_address;
 }
 
 void send_set_start_line_instruction(void)
 {
-  set_start_line *set_start_line = NULL;
+  set_start_line_t *set_start_line = NULL;
   set_start_line_element(get, &set_start_line);
   send_A0(set_start_line->A0);
-  uint8_t element_to_send = set_start_line->command_byte.command_byte;
+  uint8_t element_to_send = set_start_line->command_byte;
   start_send_buffer(&element_to_send, 1);
 }
 
