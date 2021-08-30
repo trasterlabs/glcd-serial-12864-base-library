@@ -42,21 +42,51 @@
   */
 
 /**
- * @brief Initiates the instruction "Set Start Line"
- */
+  * @brief Initiates the instruction "Set Start Line"
+  */
 void init_set_start_line_instruction ( void );
 
 /**
- *  \brief Adjust the line address for the instruction Set Start Line
- *  
- *  \param [in] line_address The specified line address. It must be from 0 to 63
- */
+  * @brief Adjust the line address for the instruction "Set Start Line"
+  *
+  * @param [in] line_address The specified line address. It must be from 0 to 63
+  */
 void set_line_address_for_set_start_line_instruction ( uint8_t line_address );
 
 /**
- *  \brief Send the instruction Set Start Line
- */
+  * @brief Send the instruction "Set Start Line"
+  */
 void send_set_start_line_instruction ( void );
+
+/**
+  * @}
+  */
+
+/** @addtogroup ST7567_Protocol_set_page_address ST7567 Set Page Address
+  * @{
+  * |     INSTRUCTION      |
+  * |----------------------|
+  * | (3) Set Page Address |
+  * This instruction sets the line address of the Display Data RAM to determine the initial display line. The display data of the
+  * specified line address is displayed at the top row (COM0) of the LCD panel.
+  */
+
+/**
+  * @brief Initiates the instruction "Set Page Address"
+  */
+void init_page_address_set_instruction ( void );
+
+/**
+  * @brief Initiates the instruction "Set Page Address"
+  *
+  * @param [in] page_address The Y address vector address of the display RAM. It must be from 0 to 7
+  */
+void set_page_address_for_page_address_set_instruction ( uint8_t page_address );
+
+/**
+  * @brief Send the instruction "Set Page Address"
+  */
+void send_page_address_set_instruction ( void );
 
 /**
   * @}
