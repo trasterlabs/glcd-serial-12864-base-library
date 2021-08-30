@@ -26,3 +26,8 @@
 #include <stdint.h>
 #include "communication_stm32f103_SPI.h"
 
+enum select_operation_type
+{
+  get, set
+};
+
