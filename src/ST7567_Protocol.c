@@ -106,28 +106,24 @@ void send_set_start_line_instruction(void)
  Y [3:0] defines the Y address vector address of the display RAM.
  */
 
-typedef struct s_page_address
-{
-  unsigned int page_address :4;
-  unsigned int identifier :4;
-} page_address;
-
-typedef union u_page_address_set_command_byte
-{
-  page_address command_elements;
-  uint8_t command_byte;
-} page_address_set_command_byte;
-
 typedef struct s_page_address_set
 {
-  page_address_set_command_byte command_byte;
+  union
+  {
+    struct
+    {
+      unsigned int page_address :4;
+      unsigned int identifier :4;
+    };
+    uint8_t command_byte;
+  };
   unsigned int A0 :1;
-} page_address_set;
+} page_address_set_t;
 
 void page_address_set_element(enum select_operation_type type,
-    page_address_set **the_element)
+    page_address_set_t **the_element)
 {
-  static page_address_set start_line_element;
+  static page_address_set_t start_line_element;
   switch (type)
   {
   case get:
@@ -140,25 +136,25 @@ void page_address_set_element(enum select_operation_type type,
 
 void init_page_address_set_instruction(void)
 {
-  page_address_set *page_address_set = NULL;
+  page_address_set_t *page_address_set = NULL;
   page_address_set_element(get, &page_address_set);
   page_address_set->A0 = 0;
-  page_address_set->command_byte.command_elements.identifier = 0b1011;
+  page_address_set->identifier = 0b1011;
 }
 
 void set_page_address_for_page_address_set_instruction(uint8_t page_address)
 {
-  page_address_set *page_address_set = NULL;
+  page_address_set_t *page_address_set = NULL;
   page_address_set_element(get, &page_address_set);
-  page_address_set->command_byte.command_elements.page_address = page_address;
+  page_address_set->page_address = page_address;
 }
 
 void send_page_address_set_instruction(void)
 {
-  page_address_set *page_address_set = NULL;
+  page_address_set_t *page_address_set = NULL;
   page_address_set_element(get, &page_address_set);
   send_A0(page_address_set->A0);
-  uint8_t element_to_send = page_address_set->command_byte.command_byte;
+  uint8_t element_to_send = page_address_set->command_byte;
   start_send_buffer(&element_to_send, 1);
 }
 
