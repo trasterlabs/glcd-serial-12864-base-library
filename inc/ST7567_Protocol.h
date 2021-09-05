@@ -121,6 +121,35 @@ void ST7567_page_address_set__send_instruction(void);
  * @}
  */
 
+/** @addtogroup ST7567_Protocol_set_column_address ST7567 Set Column Address
+ * @{
+ * |      INSTRUCTION       |
+ * |:-----------------------|
+ * | (4) Set Column Address |
+ * The range of column address is 0...131. The parameter is separated into 2 instructions. The column address is increased(+1)  after  each  byte  of  display  data  access  (read/write).  This  allows  MPU  accessing  DDRAM  content  continuously.  This feature stops at the end of each page (Column Address “83h”).
+ */
+
+/**
+ * @brief Initiates the instruction "Set Column Address"
+ */
+void ST7567_set_column_address__init_instruction(void);
+/**
+ * @brief Adjust the electronic volume for the instruction "Set Column Address"
+ *
+ * @param [in] column_address The start column address.
+ * @warning Range from 0 to 131
+ */
+void ST7567_set_column_address__set_instruction(uint8_t column_address);
+
+/**
+ * @brief Send the instruction "Set Column Address"
+ */
+void ST7567_set_column_address__send_instruction(void);
+
+/**
+ * @}
+ */
+
 /** @addtogroup ST7567_Protocol_read_modify_write ST7567 Read-modify-Write
  * @{
  * |      INSTRUCTION       |
