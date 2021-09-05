@@ -92,24 +92,21 @@ void ST7567_page_address_set__send_instruction(void);
 /** @addtogroup ST7567_Protocol_read_modify_write ST7567 Read-modify-Write
  * @{
  * |      INSTRUCTION       |
- * |------------------------|
+ * |:-----------------------|
  * | (12) Read-modify-Write |
  *
- * This  command  is  used  paired  with  the  “END”  instruction.  Once  this  command  has  been  input,  the  display  data  read
- operation will not change the column address, but only the display data write operation will increase the column address
- (X[7:0]+1). This mode is maintained until the END command is input. This function makes it possible to reduce the load on
- the MPU when there are repeating data changes in a specified display region, such as a blanking cursor.
+ * This command is used paired with the “END” instruction. Once this command has been input, the display data read operation will not change the column address, but only the display data write operation will increase the column address (X[7:0]+1). This mode is maintained until the END command is input. This function makes it possible to reduce the load on the MPU when there are repeating data changes in a specified display region, such as a blanking cursor.
  */
 
 /**
  * @brief Initiates the instruction "Read-modify-Write"
  */
-void init_read_modify_write_instruction(void);
+void ST7567_read_modify_write__init_instruction(void);
 
 /**
  * @brief Send the instruction "Read-modify-Write"
  */
-void send_read_modify_write_instruction(void);
+void ST7567_read_modify_write__send_instruction(void);
 
 /**
  * @}
