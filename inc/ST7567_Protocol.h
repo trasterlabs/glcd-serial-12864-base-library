@@ -243,6 +243,38 @@ void ST7567_inverse_display__send_instruction(void);
  * @}
  */
 
+/** @addtogroup ST7567_Protocol_all_pixel_on ST7567 All Pixel ON
+ * @{
+ * |    INSTRUCTION    |
+ * |:------------------|
+ * | (10) All Pixel ON |
+ * This instruction will let all segments output the selected voltage and make all pixels turned ON.
+ */
+
+/**
+ * @brief Initiates the instruction "All Pixel ON"
+ */
+void ST7567_all_pixel_on__init_instruction(void);
+
+/**
+ * @brief Using the "All Pixel ON" instruction, prepares to show all the pixels
+ */
+void ST7567_prepare_all_pixels_on(void);
+
+/**
+ * @brief Using the "All Pixel ON" instruction, prepares to hide all the pixels
+ */
+void ST7567_prepare_all_pixels_off(void);
+
+/**
+ * @brief Send the instruction "All Pixel ON"
+ */
+void ST7567_all_pixel_on__send_instruction(void);
+
+/**
+ * @}
+ */
+
 /** @addtogroup ST7567_Protocol_read_modify_write ST7567 Read-modify-Write
  * @{
  * |      INSTRUCTION       |
