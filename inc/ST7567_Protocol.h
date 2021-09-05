@@ -31,6 +31,38 @@
  * @{
  */
 
+/** @addtogroup ST7567_Protocol_display_on_off ST7567 Display ON/OFF
+ * @{
+ * |    INSTRUCTION     |
+ * |:-------------------|
+ * | (1) Display ON/OFF |
+ * Turns on or off the display
+ */
+
+/**
+ * @brief Initiates the instruction "Display ON/OFF"
+ */
+void ST7567_display_on_off__init_instruction(void);
+
+/**
+ * @brief Using the "Display ON/OFF" instruction, prepares to turn on the display
+ */
+void ST7567_prepare_to_turn_on_the_display(void);
+
+/**
+ * @brief Using the "Display ON/OFF" instruction, prepares to turn off the display
+ */
+void ST7567_prepare_to_turn_off_the_display(void);
+
+/**
+ * @brief Send the instruction "Display ON/OFF"
+ */
+void ST7567_display_on_off__send_instruction(void);
+
+/**
+ * @}
+ */
+
 /** @addtogroup ST7567_Protocol_set_start_line ST7567 Set Start Line
  * @{
  * |    INSTRUCTION     |
