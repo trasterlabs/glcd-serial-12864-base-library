@@ -275,6 +275,38 @@ void ST7567_all_pixel_on__send_instruction(void);
  * @}
  */
 
+/** @addtogroup ST7567_Protocol_bias_select ST7567 Bias Select
+ * @{
+ * |   INSTRUCTION    |
+ * |:-----------------|
+ * | (11) Bias Select |
+ * Select LCD bias ratio of the voltage required for driving the LCD.
+ */
+
+/**
+ * @brief Initiates the instruction "Bias Select"
+ */
+void ST7567_bias_select__init_instruction(void);
+
+/**
+ * @brief Using the "Bias Select" instruction, prepares to adjust the bias to 1/9
+ */
+void ST7567_prepare_the_bias_at_1_9(void);
+
+/**
+ * @brief Using the "Bias Select" instruction, prepares to adjust the bias to 1/7
+ */
+void ST7567_prepare_the_bias_at_1_7(void);
+
+/**
+ * @brief Send the instruction "Bias Select"
+ */
+void ST7567_bias_select__send_instruction(void);
+
+/**
+ * @}
+ */
+
 /** @addtogroup ST7567_Protocol_read_modify_write ST7567 Read-modify-Write
  * @{
  * |      INSTRUCTION       |
