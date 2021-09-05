@@ -436,6 +436,46 @@ void ST7567_power_control__send_instruction(void);
  * @}
  */
 
+/** @addtogroup ST7567_Protocol_regulation_ratio ST7567 Regulation Ratio
+ * @{
+ * |      INSTRUCTION      |
+ * |:----------------------|
+ * | (17) Regulation Ratio |
+ * This instruction controls the regulation ratio of the built-in regulator.
+ */
+
+/**
+ * @brief Initiates the instruction "Regulation Ratio"
+ */
+void ST7567_regulation_ratio__init_instruction(void);
+/**
+ * @brief Adjust the regulation ratio for the instruction "Regulation Ratio"
+ *
+ * @param [in] regulation_ratio The electronic volume to be adjusted.
+ * @note Range from 0 to 7
+ * | RR2 | RR1 | RR0 | Regulation Ratio (RR) |
+ * |-----|-----|-----|-----------------------|
+ * |   0 |   0 |   0 |                   3.0 |
+ * |   0 |   0 |   1 |                   3.5 |
+ * |   0 |   1 |   0 |                   4.0 |
+ * |   0 |   1 |   1 |                   4.5 |
+ * |   1 |   0 |   0 |                   5.0 |
+ * |   1 |   0 |   1 |                   5.5 |
+ * |   1 |   1 |   0 |                   6.0 |
+ * |   1 |   1 |   1 |                   6.5 |
+ *
+ */
+void ST7567_regulation_ratio__set_instruction(uint8_t regulation_ratio);
+
+/**
+ * @brief Send the instruction "Regulation Ratio"
+ */
+void ST7567_regulation_ratio__send_instruction(void);
+
+/**
+ * @}
+ */
+
 /** @addtogroup ST7567_Protocol_electronic_volume_set ST7567 Electronic volume
  * @{
  * | INSTRUCTION |
