@@ -330,6 +330,28 @@ void ST7567_read_modify_write__send_instruction(void);
  * @}
  */
 
+/** @addtogroup ST7567_Protocol_end ST7567 RESET
+ * @{
+ * | INSTRUCTION |
+ * |:------------|
+ * | (14) RESET  |
+ * This instruction resets Start Line (S[5:0]), Column Address (X[7:0]), Page Address (Y[3:0]) and COM Direction (MY) to their default setting. Please note this instruction is not complete same as hardware reset (RSTB=L) and cannot initialize the built-in power circuit which is initialized by the RSTB pin.
+ */
+
+/**
+ * @brief Initiates the instruction "RESET"
+ */
+void ST7567_reset__init_instruction(void);
+
+/**
+ * @brief Send the instruction "RESET"
+ */
+void ST7567_reset__send_instruction(void);
+
+/**
+ * @}
+ */
+
 /** @addtogroup ST7567_Protocol_electronic_volume_set ST7567 Electronic volume
  * @{
  * | INSTRUCTION |
