@@ -505,6 +505,35 @@ void ST7567_electronic_volume_set__send_instruction(void);
  * @}
  */
 
+/** @addtogroup ST7567_Protocol_set_booster ST7567 Set Booster
+ * @{
+ * |   INSTRUCTION    |
+ * |:-----------------|
+ * | (19) Set Booster |
+ * This is double byte instruction. The first byte set ST7567 into booster configuration mode and the following instruction will change the booster setting.  That means these 2 bytes must be used together.  They control the built-in booster circuit to provide  the  power  source  of  the  built-in  regulator.  ST7567  booster  is  built-in  booster  capacitors
+ */
+
+/**
+ * @brief Initiates the instruction "Set Booster"
+ */
+void ST7567_set_booster__init_instruction(void);
+/**
+ * @brief Adjust the electronic volume for the instruction "Set Booster"
+ *
+ * @param [in] booster_level The electronic volume to be adjusted.
+ * @note Range from 0 to 3
+ */
+void ST7567_set_booster__set_instruction(uint8_t booster_level);
+
+/**
+ * @brief Send the instruction "Set Booster"
+ */
+void ST7567_set_booster__send_instruction(void);
+
+/**
+ * @}
+ */
+
 /**
  * @}
  */
