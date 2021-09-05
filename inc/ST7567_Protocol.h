@@ -63,28 +63,27 @@ void ST7567_set_start_line__send_instruction(void);
 /** @addtogroup ST7567_Protocol_set_page_address ST7567 Set Page Address
  * @{
  * |     INSTRUCTION      |
- * |----------------------|
+ * |:---------------------|
  * | (3) Set Page Address |
- * This instruction sets the line address of the Display Data RAM to determine the initial display line. The display data of the
- * specified line address is displayed at the top row (COM0) of the LCD panel.
+ * Y [3:0] defines the Y address vector address of the display RAM.
  */
 
 /**
  * @brief Initiates the instruction "Set Page Address"
  */
-void init_page_address_set_instruction(void);
+void ST7567_page_address_set__init_instruction(void);
 
 /**
  * @brief Adjust the page address "Set Page Address"
  *
  * @param [in] page_address The Y address vector address of the display RAM. It must be from 0 to 7
  */
-void set_page_address_for_page_address_set_instruction(uint8_t page_address);
+void ST7567_page_address_set__set_instruction(uint8_t page_address);
 
 /**
  * @brief Send the instruction "Set Page Address"
  */
-void send_page_address_set_instruction(void);
+void ST7567_page_address_set__send_instruction(void);
 
 /**
  * @}
