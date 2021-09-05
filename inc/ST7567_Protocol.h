@@ -352,6 +352,38 @@ void ST7567_reset__send_instruction(void);
  * @}
  */
 
+/** @addtogroup ST7567_Protocol_com_direction ST7567 COM Direction
+ * @{
+ * |    INSTRUCTION     |
+ * |:-------------------|
+ * | (15) COM Direction |
+ * This instruction controls the common output status which changes the vertical display direction.
+ */
+
+/**
+ * @brief Initiates the instruction "COM Direction"
+ */
+void ST7567_com_direction__init_instruction(void);
+
+/**
+ * @brief Using the "COM Direction" instruction, prepares the normal direction of the displayed pixels
+ */
+void ST7567_prepare_the_com_normal_direction(void);
+
+/**
+ * @brief Using the "COM Direction" instruction, prepares the reversed direction of the displayed pixels
+ */
+void ST7567_prepare_the_com_reverse_direction(void);
+
+/**
+ * @brief Send the instruction "COM Direction"
+ */
+void ST7567_com_direction__send_instruction(void);
+
+/**
+ * @}
+ */
+
 /** @addtogroup ST7567_Protocol_electronic_volume_set ST7567 Electronic volume
  * @{
  * | INSTRUCTION |
