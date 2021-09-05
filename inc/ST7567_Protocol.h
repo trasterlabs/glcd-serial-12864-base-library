@@ -384,6 +384,58 @@ void ST7567_com_direction__send_instruction(void);
  * @}
  */
 
+/** @addtogroup ST7567_Protocol_power_control ST7567 Power Control
+ * @{
+ * |    INSTRUCTION     |
+ * |:-------------------|
+ * | (16) Power Control |
+ * This instruction controls the built-in power circuits. Typically, these 3 flags are turned ON at the same time.
+ */
+
+/**
+ * @brief Initiates the instruction "Power Control"
+ */
+void ST7567_power_control__init_instruction(void);
+
+/**
+ * @brief Using the "Power Control" instruction, prepares to turn on the booster
+ */
+void ST7567_prepare_to_turn_on_the_booster(void);
+
+/**
+ * @brief Using the "Power Control" instruction, prepares to turn off the booster
+ */
+void ST7567_prepare_to_turn_off_the_booster(void);
+
+/**
+ * @brief Using the "Power Control" instruction, prepares to turn on the regulator
+ */
+void ST7567_prepare_to_turn_on_the_regulator(void);
+
+/**
+ * @brief Using the "Power Control" instruction, prepares to turn off the regulator
+ */
+void ST7567_prepare_to_turn_off_the_regulator(void);
+
+/**
+ * @brief Using the "Power Control" instruction, prepares to turn on the follower
+ */
+void ST7567_prepare_to_turn_on_the_follower(void);
+
+/**
+ * @brief Using the "Power Control" instruction, prepares to turn off the follower
+ */
+void ST7567_prepare_to_turn_off_the_follower(void);
+
+/**
+ * @brief Send the instruction "Power Control"
+ */
+void ST7567_power_control__send_instruction(void);
+
+/**
+ * @}
+ */
+
 /** @addtogroup ST7567_Protocol_electronic_volume_set ST7567 Electronic volume
  * @{
  * | INSTRUCTION |
