@@ -211,6 +211,37 @@ void ST7567_seg_direction__send_instruction(void);
  * @}
  */
 
+/** @addtogroup ST7567_Protocol_inverse_display ST7567 Inverse Display
+ * @{
+ * |     INSTRUCTION     |
+ * |:--------------------|
+ * | (9) Inverse Display |
+ * This instruction changes the selected and non-selected voltage of SEG. The display will be inverted (White -> Black, Black -> White) while the display data in the Display Data RAM is never changed.
+ */
+
+/**
+ * @brief Initiates the instruction "Inverse Display"
+ */
+void ST7567_inverse_display__init_instruction(void);
+
+/**
+ * @brief Using the "Inverse Display" instruction, prepares the normal way to show the displayed pixels
+ */
+void ST7567_prepare_normal_display(void);
+
+/**
+ * @brief Using the "Inverse Display" instruction, prepares the inverted way to show the displayed pixels
+ */
+void ST7567_prepare_inverted_display(void);
+
+/**
+ * @brief Send the instruction "Inverse Display"
+ */
+void ST7567_inverse_display__send_instruction(void);
+
+/**
+ * @}
+ */
 
 /** @addtogroup ST7567_Protocol_read_modify_write ST7567 Read-modify-Write
  * @{
