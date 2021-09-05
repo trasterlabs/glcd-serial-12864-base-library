@@ -36,26 +36,25 @@
  * |    INSTRUCTION     |
  * |:-------------------|
  * | (2) Set Start Line |
- * This instruction sets the line address of the Display Data RAM to determine the initial display line. The display data of the
- * specified line address is displayed at the top row (COM0) of the LCD panel.
+ * This instruction sets the line address of the Display Data RAM to determine the initial display line. The display data of the specified line address is displayed at the top row (COM0) of the LCD panel.
  */
 
 /**
  * @brief Initiates the instruction "Set Start Line"
  */
-void init_set_start_line_instruction(void);
+void ST7567_set_start_line__init_instruction(void);
 
 /**
  * @brief Adjust the line address for the instruction "Set Start Line"
  *
  * @param [in] line_address The specified line address. It must be from 0 to 63
  */
-void set_line_address_for_set_start_line_instruction(uint8_t line_address);
+void ST7567_set_start_line__set_instruction(uint8_t line_address);
 
 /**
  * @brief Send the instruction "Set Start Line"
  */
-void send_set_start_line_instruction(void);
+void ST7567_set_start_line__send_instruction(void);
 
 /**
  * @}
