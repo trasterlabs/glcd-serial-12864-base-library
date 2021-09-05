@@ -150,6 +150,35 @@ void ST7567_set_column_address__send_instruction(void);
  * @}
  */
 
+/** @addtogroup ST7567_Protocol_write_data ST7567 Write Data
+ * @{
+ * |  INSTRUCTION   |
+ * |:---------------|
+ * | (6) Write Data |
+ * 8-bit data of Display Data from the microprocessor can be written to the RAM location specified by the column address and page address. The column address is increased by 1 automatically so that the microprocessor can continuously write data to the addressed page. During auto-increment, the column address wraps to 0 after the last column is written.
+ */
+
+/**
+ * @brief Initiates the instruction "Write Data"
+ */
+void ST7567_write_data__init_instruction(void);
+/**
+ * @brief Adjust the electronic volume for the instruction "Write Data"
+ *
+ * @param [in] electronic_volume The electronic volume to be adjusted.
+ * @warning Range from 0 to 131
+ */
+void ST7567_write_data__set_instruction(uint8_t *the_data, uint8_t number_of_elements);
+
+/**
+ * @brief Send the instruction "Write Data"
+ */
+void ST7567_write_data__send_instruction(void);
+
+/**
+ * @}
+ */
+
 /** @addtogroup ST7567_Protocol_read_modify_write ST7567 Read-modify-Write
  * @{
  * |      INSTRUCTION       |
