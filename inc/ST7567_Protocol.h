@@ -179,6 +179,39 @@ void ST7567_write_data__send_instruction(void);
  * @}
  */
 
+/** @addtogroup ST7567_Protocol_seg_direction ST7567 SEG Direction
+ * @{
+ * |    INSTRUCTION    |
+ * |:------------------|
+ * | (8) SEG Direction |
+ *
+ */
+
+/**
+ * @brief Initiates the instruction "SEG Direction"
+ */
+void ST7567_seg_direction__init_instruction(void);
+
+/**
+ * @brief Using the "SEG Direction" instruction, prepares the normal direction of the displayed pixels
+ */
+void ST7567_prepare_the_seg_normal_direction(void);
+
+/**
+ * @brief Using the "SEG Direction" instruction, prepares the reversed direction of the displayed pixels
+ */
+void ST7567_prepare_the_seg_reverse_direction(void);
+
+/**
+ * @brief Send the instruction "SEG Direction"
+ */
+void ST7567_seg_direction__send_instruction(void);
+
+/**
+ * @}
+ */
+
+
 /** @addtogroup ST7567_Protocol_read_modify_write ST7567 Read-modify-Write
  * @{
  * |      INSTRUCTION       |
