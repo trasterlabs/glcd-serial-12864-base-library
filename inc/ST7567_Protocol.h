@@ -115,29 +115,27 @@ void ST7567_read_modify_write__send_instruction(void);
 /** @addtogroup ST7567_Protocol_electronic_volume_set ST7567 Electronic volume
  * @{
  * | INSTRUCTION |
- * |-------------|
+ * |:------------|
  * | (18) Set EV |
- * This is double byte instruction. The first byte set ST7567 into EV adjust mode and the following instruction will change the
-EV setting. That means these 2 bytes must be used together. They control the electronic volume to adjust a suitable V0
-voltage for the LCD.
+ * This is double byte instruction. The first byte set ST7567 into EV adjust mode and the following instruction will change the EV setting. That means these 2 bytes must be used together. They control the electronic volume to adjust a suitable V0 voltage for the LCD.
  */
 
 /**
  * @brief Initiates the instruction "Electronic Volume Set"
  */
-void init_electronic_volume_set_instruction(void);
+void ST7567_electronic_volume_set__init_instruction(void);
 /**
  * @brief Adjust the electronic volume for the instruction "Electronic Volume Set"
  *
  * @param [in] electronic_volume The electronic volume to be adjusted.
- * @warning Range from 0 to 63
+ * @note Range from 0 to 63
  */
-void set_electronic_volume_set_instruction(uint8_t electronic_volume);
+void ST7567_electronic_volume_set__set_instruction(uint8_t electronic_volume);
 
 /**
  * @brief Send the instruction "Electronic Volume Set"
  */
-void send_electronic_volume_set_instruction(void);
+void ST7567_electronic_volume_set__send_instruction(void);
 
 /**
  * @}
